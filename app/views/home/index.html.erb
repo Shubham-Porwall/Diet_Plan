@@ -1,0 +1,10 @@
+<center>
+	<br>
+	<h1 class='alert alert-success'>Welcome To create Diet Plan PDF</h1>
+	<br><br><br>
+	<%if user_signed_in?%>
+		<%= render 'form'%>
+	<%else%>
+		<h1 class='alert alert-danger'>You need to sign in for create PDF</h1>
+	<%end%>
+</center>
