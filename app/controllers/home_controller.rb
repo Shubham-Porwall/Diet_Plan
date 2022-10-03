@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
-	before_action :find_diet, only: [:show] 
+	before_action :find_diet, only: [:show]
+	before_action :authenticate_user!, only: [:create, :show, :index]
+	before_action :is_admin, only: [:show, :index]
 
 	def new
 		@diet = Diet.new
@@ -26,5 +28,9 @@ class HomeController < ApplicationController
 
 	def find_diet
 		@diet = Diet.find_by(id: params[:id])
+	end
+
+	def is_admin
+		redirect_to root_path unless is_admin?
 	end
 end

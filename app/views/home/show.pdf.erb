@@ -1,81 +1,99 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>PDF</title>
-  <%= wicked_pdf_stylesheet_link_tag "application" -%>
-  <%= wicked_pdf_stylesheet_link_tag "bootstrap" %>
+  <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" %>
 </head>
 <body>
-    <div class="max-w-7xl mx-auto">
-        <header class="flex justify-between px-10 py-5">
-            <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl flex items-end">FITBUDDIES</h1>
-        </header><br><br>
-        <hr>
-        <section class="flex justify-between px-10 py-5">
-            <p class="text-xs">
-                <%= @diet.name %><br>
-                Weight: <%= @diet.weight %><br>
-                Age: <%= @diet.age %><br>
-            </p><br>
+    <%= wicked_pdf_image_tag asset_url('/assets/logo.png'), weight: 250, height: 250, class: 'right' %><hr class="new5">
+<div class="container-fluid">
+    <div class="card">
+      <div class="card-body">
+        <center><h3 class="card-title text-success">Your Details</h3></center>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Name: <%= @diet.name %></li>
+        <li class="list-group-item">Weight: <%= @diet.weight %></li>
+        <li class="list-group-item">Age: <%= @diet.age %></li>
+        <li class="list-group-item">Date: <%= @diet.created_at.strftime('%d-%m-%Y') %></li>
+        <strong><li class="list-group-item">NUTRITIONIST: <%= sanitize @diet.nutritionist_name %></li></strong>
+      </ul>
+    </div><br>
 
-            <p>Date: <%= @diet.created_at %></p>
-            <p class="text-xs text-right">
-                <strong><h4>NUTRITIONIST: <%= sanitize @diet.nutritionist_name %><h4></strong><br>
-            </p>
-        </section>
-        <section class="flex justify-between px-10 py-5">
-            <strong><h4>IMPORTANT POINTS <h4></strong>
-            <p class="text-xs">
-                <%= sanitize @diet.important_points %>
-            </p>
-        </section>
-        <br><br>
-        <section class="flex justify-between px-10 py-5">
-             <strong><h4>EARLY MORNING <h4></strong>
-            <p class="text-xs">
-                <%= sanitize @diet.early_morning %> 
-            </p>
-        </section>
-        <br><br>
-        <section class="flex justify-between px-10 py-5">
-             <strong><h4>BREAK FAST <h4></strong>
-                <%= sanitize @diet.breakfast %> 
-            </p>
-        </section>
-        <br><br>
-        <section class="flex justify-between px-10 py-5">
-             <strong><h4>LUNCH<h4></strong>
-            <p class="text-xs">
-                <%= sanitize @diet.lunch %>
-            </p>
-        </section>
-        <br><br>
-        <section class="flex justify-between px-10 py-5">
-             <strong><h4>EVENING SNACKS<h4></strong>
-            <p class="text-xs">
-                <%= sanitize @diet.evening_snacks %>
-            </p>
-        </section>
-        <br><br>
-        <section class="flex justify-between px-10 py-5">
-             <strong><h4>DINNER<h4></strong>
-             <p class="text-xs">
-               <%= sanitize @diet.dinner %>
-            </p>
-        </section>
-        <br><br>
-         <section class="flex justify-between px-10 py-5">
-             <strong><h4>Note:<h4></strong>
-            <p class="text-xs">
-                Try to update meal pictures on WhatsApp because coach will get to know
-                about your right meal with right quantity
-                That will be beneficial for you.
-            </p>
-        </section>
-        <br><br>
-    </div>
+    <div class="card">
+      <div class="card-body">
+        <center><h3 class="card-title text-success">Important Points</h3></center>
+      </div>
+      <div class="para-text"> <%= sanitize @diet.important_points %> </div>
+    </div><hr>
+
+    <div class="card">
+      <div class="card-body">
+        <center><h3 class="card-title text-success">Early Morning</h3></center>
+      </div>
+      <div class="para-text"> <%= sanitize @diet.early_morning %> </div>
+    </div><hr>
+
+    <div class="card">
+      <div class="card-body">
+        <center><h3 class="card-title text-success">Break Fast</h3></center>
+      </div>
+      <div class="para-text"> <%= sanitize @diet.breakfast %> </div>
+    </div><hr>
+
+    <div class="card">
+      <div class="card-body">
+        <center><h3 class="card-title text-success">Lunch</h3></center>
+      </div>
+      <div class="para-text"> <%= sanitize @diet.lunch %> </div>
+    </div><hr>
+
+    <div class="card">
+      <div class="card-body">
+        <center><h3 class="card-title text-success">Evening Snacks</h3></center>
+      </div>
+      <div class="para-text"> <%= sanitize @diet.evening_snacks %> </div>
+    </div><hr>
+
+    <div class="card">
+      <div class="card-body">
+        <center><h3 class="card-title text-success">Dinner</h3></center>
+      </div>
+      <div class="para-text"> <%= sanitize @diet.dinner %> </div>
+    </div><hr>
+
+    <h4 class="note">Note:<h4>
+      <div class="para-text">
+        Try to update meal pictures on WhatsApp because coach will get to know about your right meal with right quantity. That will be beneficial for you.</div>
+      </p>
+  </div>
+</div>
+
 </body>
 </html>
+
 <style type="text/css">
-  
+  body{
+    font-family: sans serif;
+  }
+  hr.new5 {
+    border: 5px solid green;
+    border-radius: 5px;
+  }
+  .card-title{
+    font-weight: bold;
+  }
+  .list-group-item{
+    font-size: 15px;
+  }
+  .para-text{
+    font-size: 15px;
+    padding: 15px;
+  }
+  .note{
+    font-size: 20px;
+    color: red;
+  }
+  .card{
+    border: 1px solid green;
+  }
 </style>
