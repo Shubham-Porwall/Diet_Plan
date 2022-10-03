@@ -65,3 +65,5 @@ gem 'devise'
 gem 'tinymce-rails'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+
+gem "terser", "~> 1.1"
