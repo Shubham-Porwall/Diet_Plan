@@ -1,0 +1,35 @@
+<div class="container">
+  <center>
+    <div class="col-12">
+      <h1> Your Users </h1>
+      <table class="table  table-bordered table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Client Name</th>
+            <th>Active</th>
+            <th>Delete Users</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= user.email %></td>
+              <% if !user.isactive %>
+                <td>
+                  <%= link_to "Inactive", update_activity_path(user.id), method: :patch, class: "btn btn-danger" %> 
+                </td>
+              <% else %>
+                 <td>
+                  <%= link_to "Active", update_activity_path(user.id), method: :patch, class: "btn btn-success" %> 
+                </td>
+              <% end %>
+                <td>
+                  <%= link_to "Delete User", user_path(user.id), method: :delete, class: "btn btn-danger" %> 
+                </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </center>  
+<div>

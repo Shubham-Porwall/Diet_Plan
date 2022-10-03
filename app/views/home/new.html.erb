@@ -1,0 +1,10 @@
+<center>
+	<br>
+	<% if user_signed_in? && current_user.isactive%>
+		<%= render 'form', diet: @diet %>
+	<% elsif user_signed_in? %>
+		<h1 class='alert alert-danger'>You are not authorized to create PDF. Try to contact administrator</h1>
+	<% else %>
+		<h1 class='alert alert-danger'>You need to sign in for create PDF</h1>
+	<% end %>
+</center>
