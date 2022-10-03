@@ -63,3 +63,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'byebug'
 gem 'devise'
 gem 'tinymce-rails'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'

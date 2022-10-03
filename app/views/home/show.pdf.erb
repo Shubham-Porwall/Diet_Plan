@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PDF</title>
+  <%= wicked_pdf_stylesheet_link_tag "application" -%>
+  <%= wicked_pdf_stylesheet_link_tag "bootstrap" %>
+</head>
+<body>
+    <div class="max-w-7xl mx-auto">
+        <header class="flex justify-between px-10 py-5">
+            <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl flex items-end">FITBUDDIES</h1>
+        </header><br><br>
+        <hr>
+        <section class="flex justify-between px-10 py-5">
+            <p class="text-xs">
+                <%= @diet.name %><br>
+                Weight: <%= @diet.weight %><br>
+                Age: <%= @diet.age %><br>
+            </p><br>
+
+            <p>Date: <%= @diet.created_at %></p>
+            <p class="text-xs text-right">
+                <strong><h4>NUTRITIONIST: <%= sanitize @diet.nutritionist_name %><h4></strong><br>
+            </p>
+        </section>
+        <section class="flex justify-between px-10 py-5">
+            <strong><h4>IMPORTANT POINTS <h4></strong>
+            <p class="text-xs">
+                <%= sanitize @diet.important_points %>
+            </p>
+        </section>
+        <br><br>
+        <section class="flex justify-between px-10 py-5">
+             <strong><h4>EARLY MORNING <h4></strong>
+            <p class="text-xs">
+                <%= sanitize @diet.early_morning %> 
+            </p>
+        </section>
+        <br><br>
+        <section class="flex justify-between px-10 py-5">
+             <strong><h4>BREAK FAST <h4></strong>
+                <%= sanitize @diet.breakfast %> 
+            </p>
+        </section>
+        <br><br>
+        <section class="flex justify-between px-10 py-5">
+             <strong><h4>LUNCH<h4></strong>
+            <p class="text-xs">
+                <%= sanitize @diet.lunch %>
+            </p>
+        </section>
+        <br><br>
+        <section class="flex justify-between px-10 py-5">
+             <strong><h4>EVENING SNACKS<h4></strong>
+            <p class="text-xs">
+                <%= sanitize @diet.evening_snacks %>
+            </p>
+        </section>
+        <br><br>
+        <section class="flex justify-between px-10 py-5">
+             <strong><h4>DINNER<h4></strong>
+             <p class="text-xs">
+               <%= sanitize @diet.dinner %>
+            </p>
+        </section>
+        <br><br>
+         <section class="flex justify-between px-10 py-5">
+             <strong><h4>Note:<h4></strong>
+            <p class="text-xs">
+                Try to update meal pictures on WhatsApp because coach will get to know
+                about your right meal with right quantity
+                That will be beneficial for you.
+            </p>
+        </section>
+        <br><br>
+    </div>
+</body>
+</html>
+<style type="text/css">
+  
+</style>

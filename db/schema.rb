@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_27_054542) do
+ActiveRecord::Schema.define(version: 2022_09_28_122518) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "diets", force: :cascade do |t|
+    t.string "name"
+    t.float "weight"
+    t.integer "age"
+    t.string "nutritionist_name"
+    t.text "important_points"
+    t.text "early_morning"
+    t.text "breakfast"
+    t.text "lunch"
+    t.text "evening_snacks"
+    t.text "dinner"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
