@@ -2,9 +2,11 @@ class HomeController < ApplicationController
 	before_action :find_diet, only: [:show]
 	before_action :authenticate_user!, only: [:create, :show, :index]
 	before_action :is_admin, only: [:show, :index]
+	include DietSetter
 
 	def new
 		@diet = Diet.new
+		set_diet(@diet)
 	end
 
 	def create
